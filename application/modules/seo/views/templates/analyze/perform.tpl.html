@@ -1,0 +1,39 @@
+<span tal:omit-tag="true" metal:use-macro="../application/layout/main.php/layout">
+    <span tal:omit-tag="true" metal:fill-slot="content_text">
+        <div id="content_text">
+            <form action="/seo/analyze/perform" method="post">
+                <table>
+                    <tr>
+                        <td>Language</td>
+                        <td>
+                            <select name="language">
+                                <option value="de">Germany</option>
+                                <option value="en">Great Britian</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>URL (Tip: .domain.)</td>
+                        <td>
+                            <input type="text" name="url" tal:attributes="value url | nothing"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Keywords (Comma separated)</td>
+                        <td>
+                            <input type="text" name="kw" tal:attributes="value kw | nothing"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit" name="Analyze" value="Analyze"/>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            <p tal:condition="result">
+                <table tal:content="structure result"/>
+            </p>
+        </div>
+    </span>
+</span>

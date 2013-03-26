@@ -1,0 +1,59 @@
+<span tal:omit-tag="true" metal:use-macro="../application/layout/main.php/layout">
+    <span tal:omit-tag="true" metal:fill-slot="content_text">
+        <!-- oneshot -->
+        <div class="contentheader" style="margin-left: 60px; padding-bottom: 10px">"FLOWER FOR LIFE"-Publikumsbewertung</div>
+        <form action="/auth/oneshot/check" method="post">
+            <input type="hidden" name="captcha[id]" tal:attributes="value cptid"/>
+
+            <table id="auth_register_table" border="0" cellpadding="0" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td width="25%"></td>
+                        <td width="75%"></td>
+                    </tr>
+                    <tr>
+                    <td colspan="2" style="padding-bottom: 30px;">Um Ihre Bewertung auszuf&uuml;hren geben Sie bitte Ihren Namen, Ihre Emailadresse und den Buchstaben- bzw. Zahlencode der Grafik  in die Formularfelder ein. <br /><br />Mit Ihrer Anmeldung erhalten Sie eine Best&auml;tigungsemail mit Aktivierungslink an die angegebene Emailadresse. Klicken Sie bitte in dieser Email auf den Aktivierungslink und best&auml;tigen Sie Ihre Bewertung.</td></tr>
+                    <tr>
+                        <td style="padding-left: 10px;">Name</td>
+                        <td><input class="auth_register_input" type="text" name="name" tal:attributes="value name | nothing"/></td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-left: 10px;">Email-Adresse</td>
+                        <td><input class="auth_register_input" type="text" name="email" tal:attributes="value email | nothing"/></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left: 10px;"><br /><br />Sicherheitscode</td>
+                        <td>
+                            <br /><span tal:omit-tag="true" tal:content="structure cptimg"/>
+                        <br /><a style="font-family: Verdana, Arial; font-size: 12px; padding-top: 10px;" href="#" onclick="javascript: window.location.reload()">Neu laden</a><br/><input class="auth_register_input" type="text" name="captcha[input]"/></td>
+                    </tr>
+                    <tr tal:condition="errorMessage">
+                        <td>&nbsp;</td>
+                        <td style="font-family: Arial; font-size: 12px; color: red;" tal:content="structure errorMessage"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td style="padding-top: 10px;">
+                            <input type="submit" value="Anmelden"/>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2" style="font-size: 9pt;padding-top: 10px;">
+                            <br />
+                            <br />
+                            <b>Hinweis:</b>
+                            <br />
+                            Mit der Aktivierung Ihrer Emailadresse k&ouml;nnen Sie nun 24 Stunden beliebig viele Bilder je 1x bewerten.
+                            <br />
+                            Eine Mehrfachbewertung ist dabei leider nicht m&ouml;glich.
+                            &nbsp;Um weitere Bilder zu bewerten, aktivieren Sie bitte nach Ablauf der 24 Stunden Ihren Aktivierungslink erneut bzw. geben Sie nach Aufforderung Ihre Emailadresse erneut ein.
+                            <br />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </span>
+</span>

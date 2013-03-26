@@ -1,0 +1,10 @@
+Options FollowSymLinks Indexes
+RewriteEngine On
+RewriteBase /
+# Zend
+RewriteCond %{REQUEST_URI} ^/auth.*$ [nocase,ornext]
+RewriteCond %{REQUEST_URI} ^/email.*$ [nocase,ornext]
+RewriteRule ^.*$ zend.php [last]
+# All other...
+RewriteCond %{REQUEST_URI} !^/zend.php
+#RewriteRule ^(.*)$ /v1/$1 [nocase,last]

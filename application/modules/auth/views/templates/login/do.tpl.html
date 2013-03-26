@@ -1,0 +1,5 @@
+<span tal:omit-tag="true" metal:use-macro="../application/layout/main.php/layout">
+    <span tal:omit-tag="true" metal:fill-slot="content_text">
+        <p tal:condition="user" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; margin-left: 60px; padding-bottom: 10px">Herzlich Willkommen, ${user/firstname} ${user/lastname} Sie sind eingeloggt!</p>
+    </span>
+</span>

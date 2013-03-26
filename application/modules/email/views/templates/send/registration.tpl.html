@@ -1,0 +1,9 @@
+<span tal:omit-tag="true" metal:use-macro="../application/modules/email/layout/layout.php/layout">
+    <span tal:omit-tag="true" metal:fill-slot="content_text">
+        <div style="margin-left: 60px; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px">
+            Bitte klicken Sie auf diesen Link, um Ihren neuen Zugang zu aktivieren:
+            <br/>
+            <span tal:omit-tag="true" tal:content="activationlink"/>
+        </div>
+    </span>
+</span>

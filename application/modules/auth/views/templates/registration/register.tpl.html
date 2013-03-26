@@ -1,0 +1,184 @@
+<span tal:omit-tag="true" metal:use-macro="../application/layout/main.php/layout">
+    <span tal:omit-tag="true" metal:fill-slot="content_text">
+        <!-- login -->
+        <p>Anmelden</p>
+        <form action="/auth/login/do" method="post">
+            <input type="hidden" name="captcha[id]" tal:attributes="value cptid"/>
+            <table class="auth_register_table">
+                <tbody>
+                    <tr>
+                        <td class="auth_register_td">
+                            Email-Adresse *
+                        </td>
+                        <td>
+                            <input class="auth_register_input" type="text" name="u" tal:attributes="value u | nothing"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auth_register_td">
+                            Passwort *
+                        </td>
+                        <td>
+                            <input class="auth_register_input" type="password" name="p"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            *
+                        </td>
+                        <td>
+                            <span tal:omit-tag="true" tal:content="structure cptimg"/>
+                            <!-- spacer -->
+                            <div style="padding: 5px"/>
+                            <a style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px" href="#" onclick="javascript: window.location.reload()">Neu laden</a>
+                            <br/>
+                            <!-- spacer -->
+                            <div style="padding: 5px"/>
+                            <input class="auth_register_input" type="text" name="captcha[input]"/>
+                        </td>
+                    </tr>
+                    <tr tal:condition="errorMessage">
+                        <td></td>
+                        <td style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; color: red;" tal:content="structure errorMessage">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input type="submit" value="Anmelden"/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+        <!-- spacer -->
+        <div style="padding: 20px"/>
+        <!-- register -->
+        <p>Registrierung</p>
+        <form action="/auth/registration/check" method="post">
+            <input type="hidden" name="captcha[id]" tal:attributes="value cptid"/>
+            <table class="auth_register_table">
+                <tbody>
+                    <tr>
+                        <td class="auth_register_td">
+                            Anrede
+                        </td>
+                        <td>
+                            <select class="auth_register_select" name="salutation">
+                                <option value=""></option>
+                                <option value="Frau">Frau</option>
+                                <option value="Herr">Herr</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auth_register_td">
+                            Titel
+                        </td>
+                        <td>
+                            <input class="auth_register_input" type="text" name="title" tal:attributes="value user/title | nothing"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auth_register_td">
+                            Vorname
+                        </td>
+                        <td>
+                            <input class="auth_register_input" type="text" name="firstname" tal:attributes="value register_user/firstname | nothing"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auth_register_td">
+                            Nachname *
+                        </td>
+                        <td>
+                            <input class="auth_register_input" type="text" name="lastname" tal:attributes="value register_user/lastname | nothing"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auth_register_td">
+                            Stra&szlig;e
+                        </td>
+                        <td>
+                            <input class="auth_register_input" type="text" name="street" tal:attributes="value register_user/street | nothing"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auth_register_td">
+                            PLZ und Ort
+                        </td>
+                        <td>
+                            <input class="auth_register_input_zip" type="text" name="zip" maxlength="5" tal:attributes="value register_user/zip | nothing"/> <input class="auth_register_input_city" type="text" name="city" tal:attributes="value register_user/city | nothing"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auth_register_td">
+                            Telefon
+                        </td>
+                        <td>
+                            <input class="auth_register_input" type="text" name="telephone" tal:attributes="value register_user/telephone | nothing"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auth_register_td">
+                            Email *
+                        </td>
+                        <td>
+                            <input class="auth_register_input" type="text" name="email" tal:attributes="value register_user/email | nothing"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auth_register_td">
+                            Homepage
+                        </td>
+                        <td>
+                            <input class="auth_register_input" type="text" name="homepage" tal:attributes="value register_user/homepage | nothing"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auth_register_td">
+                            Passwort *
+                        </td>
+                        <td>
+                            <input class="auth_register_input" type="password" name="p1"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auth_register_td">
+                            Passwort best&auml;tigen *
+                        </td>
+                        <td>
+                            <input class="auth_register_input" type="password" name="p2"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            *
+                        </td>
+                        <td>
+                            <span tal:omit-tag="true" tal:content="structure cptimg"/>
+                            <!-- spacer -->
+                            <div style="padding: 5px"/>
+                            <a style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px" href="#" onclick="javascript: window.location.reload()">Neu laden</a>
+                            <br/>
+                            <!-- spacer -->
+                            <div style="padding: 5px"/>
+                            <input class="auth_register_input" type="text" name="captcha[input]"/>
+                        </td>
+                    </tr>
+                    <tr tal:condition="errorMessage">
+                        <td></td>
+                        <td style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; color: red;" tal:content="structure errorMessage">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input type="submit" value="Anmelden"/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </span>
+</span>
